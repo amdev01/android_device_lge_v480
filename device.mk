@@ -27,8 +27,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
 # common v4xx
 $(call inherit-product, device/lge/v4xx-common/v4xx.mk)
+
+# Device overlays after common so Wi-Fi QS defaults (no cell) win over common
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
